@@ -56,7 +56,7 @@ export function HeroPortrait() {
             fill
             priority
             sizes="(max-width: 768px) 100vw, 450px"
-            className="object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 opacity-90 group-hover:opacity-100 group-hover:scale-110"
+            className="object-cover grayscale-0 md:grayscale group-hover:grayscale-0 transition-all duration-1000 opacity-100 md:opacity-90 group-hover:opacity-100 md:group-hover:scale-110"
           />
 
           {/* Reflection Overlay */}
