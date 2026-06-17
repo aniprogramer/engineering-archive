@@ -1,36 +1,133 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Engineering Archive
+
+A handcrafted personal portfolio and technical documentation archive built with Next.js, TypeScript, and Tailwind CSS.
+
+---
+
+## Overview
+
+Engineering Archive serves as a centralized repository for the professional work, technical research, and systems engineering projects of Aniket De. Unlike conventional portfolio templates that prioritize marketing aesthetics, this project is designed as a functional archive of software craftsmanship. It serves as a living record of backend architectures, data pipelines, and full-stack solutions developed with engineering rigor.
+
+---
+
+## Design Philosophy
+
+The interface adheres to a **Digital Craftsman** aesthetic, drawing inspiration from engineering notebooks, architectural blueprints, and technical documentation systems. 
+
+*   **Warm Industrial Minimalism:** Utilizes a high-contrast dark theme (#0F0F0F) with warm parchment text and copper accents to evoke the feel of a physical workspace.
+*   **Grid-First Layout:** Employs an asymmetric, engineered layout grounded in a blueprint grid system.
+*   **Authenticity over Trends:** Prioritizes technical clarity and structural depth over trendy glassmorphism or AI-generated visual styles.
+*   **Archive Terminology:** Navigational elements and section headers are framed as "Logs," "Archive," and "Transmissions" to reinforce the system-oriented identity.
+
+---
+
+## Features
+
+*   **Engineering Archive UI:** A specialized interface inspired by technical logs and system readouts.
+*   **Precision Cursor System:** A custom-engineered cursor with contextual states (Caret, Crosshair, Pointer) and high-frequency interpolation.
+*   **Archive-Grade Portrait:** Multi-layered hero portrait with subtle parallax and industrial framing.
+*   **Project Documentation:** Case-study focused project cards highlighting Problem, Solution, and Impact.
+*   **Structured Experience Logs:** A sequential timeline inspired by kernel logs and professional milestones.
+*   **Technical Proof Bar:** Real-time data visualization of core engineering metrics.
+*   **Architecture-Optimized:** Built for 60fps performance and sub-second page loads.
+*   **Accessibility Compliant:** Semantic HTML structure ensuring WCAG-level accessibility.
+
+---
+
+## Tech Stack
+
+| Category | Technologies |
+| :--- | :--- |
+| **Frontend** | Next.js 15 (App Router), React 19, Tailwind CSS 4, Framer Motion, Three.js |
+| **Backend** | Node.js, Express.js, RESTful API Design |
+| **Databases** | MySQL (Advanced), PostgreSQL, MongoDB |
+| **Languages** | JavaScript (ES6+), TypeScript, Java, Python |
+| **Tools** | Git, Vercel, Lucide Icons, Geist Font System |
+
+---
+
+## Architecture
+
+The project follows a modular component-based architecture for scalability and maintainability:
+
+*   `src/app/`: Core routing and global configuration (Layouts, Global Styles, SEO Metadata).
+*   `src/components/`: Atomic UI elements and specialized archive sections (Hero, Projects, Logs).
+*   `src/data/`: Centralized TypeScript data structures. Content is decoupled from the UI layer.
+*   `src/hooks/`: Custom React hooks for specialized interactions (Magnetic physics, Scroll tracking).
+*   `src/lib/`: Utility functions and helper classes.
+*   `public/`: Static assets, including the engineering archive screenshots and PDF logs.
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js 18.x or later
+- npm 9.x or later
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/aniketde/engineering-archive.git
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Navigate to the project directory:
+   ```bash
+   cd engineering-archive
+   ```
 
-## Learn More
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. Initialize the development environment:
+   ```bash
+   npm run dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Performance Goals
 
-## Deploy on Vercel
+- **Lighthouse Score:** Target 95+ across Performance, Accessibility, Best Practices, and SEO.
+- **Responsiveness:** Fluid grid system supporting Mobile, Desktop, and 4K displays.
+- **Motion:** Intentional, low-latency animations that respect `prefers-reduced-motion` system settings.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Screenshots
+
+![Hero Section](./public/screenshots/hero.png)
+*Hero Interface: Systems Architect archive initialization.*
+
+![Projects](./public/screenshots/projects.png)
+*Project Archive: Documentation of full-stack and data engineering builds.*
+
+---
+
+## Future Improvements
+
+*   **Integrated Engineering Blog:** Markdown-based technical writing system.
+*   **Project Deep-Dives:** Detailed case study pages with relationship diagrams.
+*   **Interactive System Diagrams:** Live Three.js representations of database schemas.
+*   **Command Line Interface:** A terminal-based navigation alternative for advanced users.
+
+---
+
+## Author
+
+**Aniket De**  
+*Software Engineer • Full Stack Developer • Data Engineer*
+
+- **GitHub:** [https://github.com/aniketde](https://github.com/aniketde)
+- **LinkedIn:** [https://linkedin.com/in/aniketde](https://linkedin.com/in/aniketde)
+- **Archive:** [https://aniketde.dev](https://aniketde.dev)
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
