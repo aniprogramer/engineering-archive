@@ -1,98 +1,109 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-surface: var(--surface);
-  --color-primary: var(--primary);
+  --color-black: var(--black);
+  --color-white: var(--white);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-blue: var(--blue);
+  --color-blue-light: var(--blue-light);
+  --color-sky: var(--sky);
+  --color-cream: var(--cream);
+  --color-cream-warm: var(--cream-warm);
   --color-accent: var(--accent);
-  --color-accent-light: var(--accent-light);
-  --color-muted: var(--muted);
-  --color-border: var(--border);
-  
-  --font-serif: "Instrument Serif", serif;
-  --font-sans: "Inter", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+
+  --font-display: var(--font-geom), "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --font-body: var(--font-sora), Inter, system-ui, sans-serif;
+  --font-mono: var(--font-mono), "JetBrains Mono", monospace;
 }
 
 :root {
-  --background: #0F0F0F;
-  --foreground: #F3F0E9;
-  --surface: #161616;
-  --primary: #F3F0E9;
-  --accent: #C97B42;
-  --accent-light: #D8A47F;
-  --muted: #A8A29E;
-  --border: #2A2A2A;
+  --ink: #213448;
+  --ink-soft: #2E4A62;
+  --blue: #547792;
+  --blue-light: #94B4C1;
+  --sky: #B4E1EB;
+  --cream: #ECEFCA;
+  --cream-warm: #F0EDE6;
+  --accent: #F9E8A2;
+  --white: #F7F9FA;
+  --black: #0B0D0F;
+
+  --text-display: clamp(4.5rem, 14vw, 15rem);
+  --text-section: clamp(3rem, 8vw, 9rem);
+  --text-title: clamp(2rem, 4vw, 5rem);
+  --text-body: clamp(1rem, 1.15vw, 1.125rem);
+  --text-meta: 0.72rem;
+
+  /* Custom Editorial Scrollbar Theme Tokens */
+  --scrollbar-track: #F0EDE6;
+  --scrollbar-thumb: #547792;
+  --scrollbar-thumb-hover: #2E4A62;
+}
+
+[data-theme="dark"] {
+  --scrollbar-track: #0B0D0F;
+  --scrollbar-thumb: #94B4C1;
+  --scrollbar-thumb-hover: #B4E1EB;
+}
+
+/* Firefox scrollbar styling */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+/* Desktop WebKit scrollbar styling (6px width, clean editorial curves) */
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+    transition: background-color 0.3s ease;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 999px;
+    transition: background-color 0.3s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+  }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
   body {
-    @apply bg-background text-foreground selection:bg-accent/30 selection:text-white antialiased overflow-x-hidden;
-    font-family: var(--font-sans);
-    background-image: 
-      radial-gradient(circle at 2px 2px, rgba(201,123,66,0.03) 1px, transparent 0),
-      linear-gradient(rgba(42,42,42,0.1) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(42,42,42,0.1) 1px, transparent 1px);
-    background-size: 40px 40px, 160px 160px, 160px 160px;
+    background-color: var(--black);
+    color: var(--white);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
   
-  h1, h2, h3, h4 {
-    font-family: var(--font-serif);
-    font-weight: 400;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 700;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
 @layer utilities {
-  .grain {
-    position: relative;
-  }
-  .grain::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
-    opacity: 0.04;
-    pointer-events: none;
-    z-index: 50;
-    mix-blend-mode: overlay;
-  }
-  
-  .blueprint-grid {
-    background-image: 
-      linear-gradient(var(--border) 1px, transparent 1px),
-      linear-gradient(90deg, var(--border) 1px, transparent 1px);
-    background-size: 100px 100px;
-    mask-image: radial-gradient(circle at center, black, transparent 80%);
-  }
-  
   .text-balance {
     text-wrap: balance;
   }
-
-  .tech-ruler {
-    background-image: repeating-linear-gradient(90deg, var(--border) 0, var(--border) 1px, transparent 1px, transparent 20px);
-    height: 8px;
-    width: 100%;
-    opacity: 0.2;
-  }
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  @apply bg-background;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-border rounded-full hover:bg-accent transition-colors;
 }

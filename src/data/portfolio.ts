@@ -1,14 +1,28 @@
 export interface Project {
+  slug: string;
+  number: string;
   title: string;
-  description: string;
-  problem: string;
-  solution: string;
-  impact: string;
-  image: string;
-  techStack: string[];
-  githubLink: string;
-  liveLink: string;
-  featured?: boolean;
+  category: string;
+  year?: string;
+  shortDescription: string;
+  thesis: string;
+  technologies: string[];
+  featured: boolean;
+  priority: 1 | 2 | 3;
+  links?: {
+    github?: string;
+    live?: string;
+  };
+  caseStudy?: {
+    problem?: string;
+    solution?: string;
+    architecture?: string;
+    impact?: string;
+  };
+  media?: {
+    hero?: string;
+    screenshots?: string[];
+  };
 }
 
 export interface Experience {
@@ -28,143 +42,194 @@ export const portfolioData = {
   name: "Aniket De",
   firstName: "Aniket",
   lastName: "De",
-  roles: ["Software Engineer", "Full Stack Web Developer", "Data Engineer"],
-  location: "India",
+  roles: [
+    "Software Engineer",
+    "Full-Stack Developer",
+    "AI/Product Engineering",
+  ],
+  location: "Mangalore, India",
   status: "Available for new opportunities",
-  headline:
-    "Building web applications, backend systems, and data-driven solutions.",
+  headline: "SOFTWARE ENGINEER / AI",
   about:
-    "I am a software engineer focused on building robust systems and data-driven applications. My approach combines clean backend architecture with intuitive frontend experiences, treated with the precision of a digital craftsman.",
+    "I build software where product interfaces, backend systems and AI capabilities have to work as one system.",
   email: "aniketde66@gmail.com",
   socials: {
     github: "https://github.com/aniprogramer",
     linkedin: "https://www.linkedin.com/in/aniket-de-2a6166293/",
-    instagram: "https://instagram.com/aniketde66",
+    instagram: "https://www.instagram.com/aniketde66/",
     resume: "/resume.pdf",
   },
   skills: [
     {
-      name: "Languages",
+      name: "LANGUAGES",
       skills: [
+        { name: "Java" },
+        { name: "Python" },
         { name: "JavaScript" },
-        { name: "Java", level: "Intermediate" },
-        { name: "Python", level: "Intermediate" },
+        { name: "TypeScript" },
+        { name: "SQL" },
+        { name: "C" },
       ],
     },
     {
-      name: "Backend",
+      name: "FRONTEND / WEB",
+      skills: [
+        { name: "React.js" },
+        { name: "Next.js" },
+        { name: "HTML" },
+        { name: "CSS" },
+        { name: "Tailwind CSS" },
+        { name: "EJS" },
+      ],
+    },
+    {
+      name: "BACKEND",
       skills: [
         { name: "Node.js" },
         { name: "Express.js" },
-        { name: "REST APIs" },
+        { name: "FastAPI" },
       ],
     },
     {
-      name: "Frontend",
+      name: "DATABASES / ORM",
       skills: [
-        { name: "React" },
-        { name: "Tailwind CSS" },
-        { name: "Framer Motion" },
-        { name: "Three.js" },
-      ],
-    },
-    {
-      name: "Databases",
-      skills: [
-        { name: "MySQL", level: "Advanced" },
         { name: "PostgreSQL" },
+        { name: "MySQL" },
         { name: "MongoDB" },
+        { name: "Prisma ORM" },
       ],
     },
     {
-      name: "Specialization",
+      name: "DEVOPS / TOOLS",
       skills: [
-        { name: "Software Engineering" },
-        { name: "Backend Systems" },
-        { name: "Database Design" },
-        { name: "Data Engineering" },
+        { name: "Docker" },
+        { name: "Git" },
+        { name: "GitHub" },
+        { name: "GitLab" },
+        { name: "Maven" },
+        { name: "Linux" },
+      ],
+    },
+    {
+      name: "AI / SYSTEMS",
+      skills: [
+        { name: "Google Gemini API" },
+        { name: "Ollama" },
+        { name: "WASM" },
+        { name: "React Three Fiber" },
+        { name: "Tree-sitter" },
+        { name: "REST APIs" },
       ],
     },
   ] as SkillCategory[],
   projects: [
     {
-      title: "DataStream Analytics",
-      description:
-        "A high-throughput data processing engine and visualization dashboard.",
-      problem:
-        "Traditional analytics tools struggled with real-time processing of diverse data streams from IoT devices.",
-      solution:
-        "Built a distributed processing layer using Node.js and optimized MySQL schemas for rapid ingestion and querying.",
-      impact:
-        "Reduced data latency by 60% and supported up to 10k events per second.",
-      image:
-        "https://images.unsplash.com/photo-1551288049-bbb653283b48?auto=format&fit=crop&q=80&w=1000",
-      techStack: ["Node.js", "MySQL", "React", "D3.js"],
-      githubLink: "#",
-      liveLink: "#",
+      slug: "wanderlust",
+      number: "01",
+      title: "Wanderlust",
+      category: "TRAVEL PLATFORM",
+      year: "2026",
+      shortDescription: "Full-stack travel accommodation platform.",
+      thesis:
+        "Developed a full-stack travel accommodation platform following MVC architecture with authentication, authorization, and CRUD operations.",
+      technologies: [
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "EJS",
+        "Passport.js",
+        "Cloudinary",
+        "Joi",
+      ],
       featured: true,
+      priority: 1,
     },
     {
-      title: "Architectural CRM",
-      description:
-        "A specialized CRM for engineering firms focused on project lifecycle management.",
-      problem:
-        "General-purpose CRMs lacked the hierarchical data structures needed for complex engineering projects.",
-      solution:
-        "Designed a relational database model in PostgreSQL that maps directly to engineering workflows.",
-      impact:
-        "Streamlined project tracking for a team of 50+ engineers, improving resource allocation efficiency.",
-      image:
-        "https://images.unsplash.com/photo-1503387762-592dee58c160?auto=format&fit=crop&q=80&w=1000",
-      techStack: ["React", "Express.js", "PostgreSQL", "Tailwind"],
-      githubLink: "#",
-      liveLink: "#",
+      slug: "sentinel-agents",
+      number: "02",
+      title: "Sentinel Agents",
+      category: "AI SECURITY TOOLING",
+      shortDescription: "Security analysis engine.",
+      thesis:
+        "Autonomous AI-driven security platform for repository-wide vulnerability analysis using AST parsing and sandboxing.",
+      technologies: [
+        "Python",
+        "FastAPI",
+        "Next.js",
+        "TypeScript",
+        "Docker",
+        "Tree-sitter",
+        "LLMs",
+      ],
       featured: true,
+      priority: 1,
+    },
+    {
+      slug: "zerodha-clone",
+      number: "03",
+      title: "Zerodha Clone",
+      category: "FINTECH / TRADING",
+      year: "2026",
+      shortDescription: "Full-stack stock trading platform.",
+      thesis:
+        "Developed a full-stack stock trading platform with secure authentication, portfolio management, and an interactive trading interface.",
+      technologies: [
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "JWT",
+        "Passport.js",
+      ],
+      featured: true,
+      priority: 1,
+    },
+    {
+      slug: "antarsetu",
+      number: "04",
+      title: "AntarSetu",
+      category: "REAL-TIME WEB APP",
+      shortDescription: "Video conferencing platform.",
+      thesis:
+        "A video conferencing platform focused on real-time communication and a modern meeting experience.",
+      technologies: ["WebRTC", "Node.js", "React.js", "Socket.IO"],
+      featured: false,
+      priority: 2,
+    },
+    {
+      slug: "scriptbridge",
+      number: "05",
+      title: "ScriptBridge",
+      category: "NLP / LANGUAGE PRESERVATION",
+      shortDescription: "Tulu translation project.",
+      thesis:
+        "Applied NLP and machine translation for Tulu language preservation.",
+      technologies: ["Python", "PyTorch", "Hugging Face", "FastAPI"],
+      featured: false,
+      priority: 2,
     },
   ] as Project[],
   experience: [
     {
-      company: "DATAVEX.ai",
-      role: "Web Dev Intern",
-      period: "2026 - Present",
+      company: "Datavex AI",
+      role: "SOFTWARE ENGINEERING INTERN",
+      period: "2026",
       type: "Internship",
       description: [
-        "Contributing to the development of an AI-powered CAD automation platform that converts 2D engineering drawings into 3D models, manufacturable CAD files, and CNC-ready G-code.",
-        "Building and integrating frontend and backend features for internal engineering tools using modern web technologies.",
-        "Collaborating with cross-functional teams to improve drawing processing workflows, system usability, and production efficiency.",
+        "Developed scalable full-stack features for an AI-powered engineering platform using Next.js, FastAPI, PostgreSQL, Docker, and REST APIs.",
+        "Built interactive engineering workspaces supporting real-time code streaming and parameter management.",
+        "Designed secure backend services with containerized deployment, persistent data management, and reusable APIs.",
       ],
     },
     {
-      company: "Sahyadri College of Engineering and Management, Mangalore",
-      role: "B.E. Computer Science and Engineering",
-      period: "2023 - Present",
+      company: "Sahyadri College of Engineering and Management",
+      role: "B.E. COMPUTER SCIENCE AND ENGINEERING",
+      period: "2023",
       type: "Education",
       description: [
-        "Pursuing a Bachelor's degree in Computer Science and Engineering with specialization in Artificial Intelligence and Machine Learning.",
-        "Actively building projects in Full-Stack Development, Artificial Intelligence, and Computer Vision.",
-        "Participating in hackathons, technical events, and collaborative software development projects.",
-      ],
-    },
-    {
-      company: "PM SHRI Kendriya Vidyalaya No. 1, Mangaluru Panambur",
-      role: "Class XII (Science)",
-      period: "2021 - 2023",
-      type: "Education",
-      description: [
-        "Completed higher secondary education with a focus on Physics, Chemistry, and Mathematics.",
-        "Developed a strong foundation in analytical thinking and problem-solving.",
-        "Explored programming and computer science concepts alongside academics.",
-      ],
-    },
-    {
-      company: "PM SHRI Kendriya Vidyalaya No. 1, Nausenabaugh, Visakhapatnam",
-      role: "Class VI - XI",
-      period: "2015 - 2021",
-      type: "Education",
-      description: [
-        "Completed secondary schooling with consistent academic performance.",
-        "Participated in extracurricular and technical activities.",
-        "Developed an early interest in technology, engineering, and software development.",
+        "Pursuing a Bachelor's degree in Computer Science and Engineering with specialization in AI and ML.",
+        "Participated in the GDG on Campus Solution Challenge and selected for SIH 2025.",
+        "Secured Top 3 positions across 4 hackathons.",
       ],
     },
   ] as Experience[],

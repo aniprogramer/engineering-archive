@@ -1,17 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, Instrument_Serif, JetBrains_Mono } from "next/font/google";
+import { Sora, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { portfolioData } from "@/data/portfolio";
-import { CustomCursor } from "@/components/ui/CustomCursor";
 
-const inter = Inter({
-  variable: "--font-sans",
-  subsets: ["latin"],
-});
-
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-serif",
-  weight: "400",
+const sora = Sora({
+  variable: "--font-sora",
   subsets: ["latin"],
 });
 
@@ -21,9 +14,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: `${portfolioData.name} | Software Engineer`,
-  description: portfolioData.headline,
-  metadataBase: new URL("https://aniketde.dev"),
+  title: `${portfolioData.name} | ${portfolioData.headline}`,
+  description: portfolioData.about,
 };
 
 export default function RootLayout({
@@ -34,9 +26,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} antialiased grain`}
+        className={`${sora.variable} ${jetbrainsMono.variable} antialiased`}
       >
-        <CustomCursor />
         {children}
       </body>
     </html>
