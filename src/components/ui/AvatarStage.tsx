@@ -1,6 +1,7 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import Image from "next/image";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 interface AvatarStageProps {
@@ -13,6 +14,7 @@ export function AvatarStage({
   name = "Aniket De",
 }: AvatarStageProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [failed, setFailed] = useState(false);
 
   // Pointer position for directional spotlight & avatar displacement
   const mouseX = useMotionValue(0);
@@ -102,31 +104,26 @@ export function AvatarStage({
             aria-hidden="true"
           />
 
-          {/* Actual portrait image */}
-          <img
-            src={imageSrc}
-            alt={name}
-            draggable={false}
-            onContextMenu={(e) => e.preventDefault()}
-            style={{
-              userSelect: "none",
-              WebkitUserDrag: "none",
-            } as React.CSSProperties}
-            className="w-full h-full object-cover object-[center_20%] grayscale-[30%] contrast-[1.08] brightness-[0.96] transition-all duration-700 hover:grayscale-0 hover:brightness-100 pointer-events-none select-none"
-            onError={(e) => {
-              // Intentional fallback container if missing
-              (e.target as HTMLElement).style.display = "none";
-              const parent = (e.target as HTMLElement).parentElement;
-              if (parent) {
-                parent.innerHTML = `
-                  <div class="w-full h-full flex flex-col items-center justify-center p-6 text-center font-mono text-xs text-white/50 bg-ink">
-                    <span>[AVATAR PLACEHOLDER]</span>
-                    <span class="mt-2 text-[0.65rem] text-accent">TODO: Place image at /public/images/profile.jpg</span>
-                  </div>
-                `;
-              }
-            }}
-          />
+          {/* Actual portrait image. The context-menu block, the overlay above and draggable={false} only
+              deter casual saving; they do not protect the image. */}
+          {failed ? (
+            <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center font-mono text-xs text-white/50 bg-ink">
+              <span>[AVATAR PLACEHOLDER]</span>
+              <span className="mt-2 text-[0.65rem] text-accent">TODO: Place image at /public/images/profile.jpg</span>
+            </div>
+          ) : (
+            <Image
+              src={imageSrc}
+              alt={name}
+              fill
+              priority
+              sizes="(min-width: 640px) 290px, 250px"
+              draggable={false}
+              onContextMenu={(e) => e.preventDefault()}
+              onError={() => setFailed(true)}
+              className="object-cover object-[center_20%] grayscale-[30%] contrast-[1.08] brightness-[0.96] transition-all duration-700 hover:grayscale-0 hover:brightness-100 pointer-events-none select-none"
+            />
+          )}
         </div>
 
         {/* Technical Coordinate Ring */}
