@@ -371,33 +371,8 @@ export const portfolioData = {
         "Peer-to-peer mesh does not scale to large rooms, and only public STUN servers are configured (TURN setup is documented separately). A database credential was committed to the source history at one point; rotate it before publishing the repository.",
     },
     {
-      slug: "scriptbridge",
-      number: "05",
-      title: "ScriptBridge",
-      subtitle: "Machine translation for Tulu language preservation",
-      category: "NLP / LANGUAGE PRESERVATION",
-      filters: ["AI / ML"],
-      shortDescription: "Tulu translation project.",
-      thesis:
-        "Applied NLP and machine translation for Tulu language preservation.",
-      overview:
-        "ScriptBridge applies natural language processing and machine translation to Tulu, a regional language with very little digital tooling. The goal is to support its preservation by making translation between Tulu and other languages possible through a model served behind an API.",
-      technologies: ["Python", "PyTorch", "Hugging Face", "FastAPI"],
-      techGroups: [
-        { label: "ML", items: ["Python", "PyTorch", "Hugging Face"] },
-        { label: "Serving", items: ["FastAPI"] },
-      ],
-      featured: false,
-      priority: 2,
-      specs: ["NLP", "MACHINE TRANSLATION", "TULU"],
-      problem:
-        "Tulu has few digital resources, so mainstream translation tools handle it poorly. A purpose-built translation model is a way to document and keep using the language.",
-      notes:
-        "Source code and documentation were not available for this review, so datasets, model architecture, accuracy and the translation workflow are intentionally not described. Add them once the repository is supplied.",
-    },
-    {
       slug: "dga-sentry",
-      number: "06",
+      number: "05",
       title: "DGA Sentry",
       subtitle: "Explainable ML console for spotting algorithmically generated domains",
       category: "AI/ML / CYBERSECURITY",
@@ -504,7 +479,7 @@ export const portfolioData = {
     },
     {
       slug: "saturn-escape",
-      number: "07",
+      number: "06",
       title: "Saturn Escape: Warp Run",
       subtitle: "A five-minute automated space cinematic in C++ and fixed-function OpenGL",
       category: "COMPUTER GRAPHICS / C++",

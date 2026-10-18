@@ -66,7 +66,7 @@ It avoids the template look. Sections read like engineering notebooks and system
 | # | Project | Domain |
 | :-: | :--- | :--- |
 | 01 | **Wanderlust** | Travel platform |
-| 06 | **DGA Sentry** | AI/ML / cybersecurity |
+| 05 | **DGA Sentry** | AI/ML / cybersecurity |
 
 **More work**
 
@@ -75,8 +75,7 @@ It avoids the template look. Sections read like engineering notebooks and system
 | 02 | **Sentinel Agents** | AI security tooling |
 | 03 | **Zerodha Clone** | Fintech UI / educational |
 | 04 | **Sangam Connect** | Real-time systems / WebRTC |
-| 05 | **ScriptBridge** | NLP / language preservation |
-| 07 | **Saturn Escape: Warp Run** | Computer graphics / C++ |
+| 06 | **Saturn Escape: Warp Run** | Computer graphics / C++ |
 
 ---
 
