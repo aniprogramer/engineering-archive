@@ -33,10 +33,11 @@ const securityHeaders = [
     key: "Content-Security-Policy",
     value: [
       "default-src 'self'",
+      // Next's runtime needs 'unsafe-inline'/'unsafe-eval' without a nonce setup; nonces are a future option.
       "script-src 'self' 'unsafe-eval' 'unsafe-inline'",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' data: https://fonts.gstatic.com",
-      "img-src 'self' data: blob: https:",
+      "img-src 'self' data: blob:",
       "connect-src 'self'",
       "frame-ancestors 'none'",
       "base-uri 'self'",
