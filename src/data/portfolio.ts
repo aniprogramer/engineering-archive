@@ -242,7 +242,7 @@ export const portfolioData = {
         { label: "Analysis", items: ["Tree-sitter AST parsing", "LLMs"] },
         { label: "Infrastructure", items: ["Docker sandboxing"] },
       ],
-      featured: true,
+      featured: false,
       priority: 1,
       specs: ["TREE-SITTER AST", "DOCKER SANDBOX", "MULTI-AGENT VALIDATION"],
       features: [
@@ -275,7 +275,7 @@ export const portfolioData = {
         { label: "Backend", items: ["Node.js", "Express.js", "cookie-parser"] },
         { label: "Database & auth", items: ["MongoDB", "Mongoose", "Passport (local)", "JWT cookie"] },
       ],
-      featured: true,
+      featured: false,
       priority: 1,
       specs: ["REACT DASHBOARD", "REST API", "JWT + PASSPORT", "DEMO DATA"],
       problem:
