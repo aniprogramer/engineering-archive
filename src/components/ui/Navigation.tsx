@@ -18,12 +18,62 @@ export function Navigation({ forcedTheme }: NavigationProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const resumeMenuRef = useRef<HTMLDivElement>(null);
   const mobileResumeMenuRef = useRef<HTMLDivElement>(null);
+  const resumeTriggerRef = useRef<HTMLButtonElement>(null);
+  const mobileResumeTriggerRef = useRef<HTMLButtonElement>(null);
+  const menuToggleRef = useRef<HTMLButtonElement>(null);
+  const drawerRef = useRef<HTMLDivElement>(null);
 
   // Derive active theme: forcedTheme takes precedence, followed by project page default (dark), followed by scroll theme
   const navTheme = forcedTheme || (isProjectPage ? "dark" : scrollTheme);
   const isLight = navTheme === "light";
 
-  // Close dropdown on outside click
+  // Close the mobile drawer on route change.
+  const [prevPath, setPrevPath] = useState(pathname);
+  if (prevPath !== pathname) {
+    setPrevPath(pathname);
+    setMobileMenuOpen(false);
+  }
+
+  // Escape closes the resume menu / drawer and returns focus to the trigger.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      if (resumeMenuOpen) {
+        setResumeMenuOpen(false);
+        const desktop = window.matchMedia("(min-width: 768px)").matches;
+        (desktop ? resumeTriggerRef : mobileResumeTriggerRef).current?.focus();
+      } else if (mobileMenuOpen) {
+        setMobileMenuOpen(false);
+        menuToggleRef.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [resumeMenuOpen, mobileMenuOpen]);
+
+  // Drawer: focus first link on open, keep Tab inside drawer links + toggle.
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const items = () => [...(drawerRef.current?.querySelectorAll<HTMLElement>("a") ?? []), menuToggleRef.current!];
+    items()[0]?.focus();
+    const trap = (e: KeyboardEvent) => {
+      if (e.key !== "Tab") return;
+      const list = items();
+      const first = list[0];
+      const last = list[list.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", trap);
+    return () => document.removeEventListener("keydown", trap);
+  }, [mobileMenuOpen]);
+
+  // Close dropdown on outside click (a hidden breakpoint's ref never contains the target, so "outside both" is correct)
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (
@@ -44,7 +94,7 @@ export function Navigation({ forcedTheme }: NavigationProps) {
     document.documentElement.setAttribute("data-theme", navTheme);
   }, [navTheme]);
 
-  // Track active section on scroll when on homepage
+  // Track active section on scroll when on homepage (project pages use forcedTheme / dark default)
   useEffect(() => {
     if (forcedTheme || isProjectPage) return;
 
@@ -140,8 +190,10 @@ export function Navigation({ forcedTheme }: NavigationProps) {
           {/* Resume Dropdown Button */}
           <div className="relative" ref={resumeMenuRef}>
             <button
+              ref={resumeTriggerRef}
               onClick={() => setResumeMenuOpen((prev) => !prev)}
               aria-expanded={resumeMenuOpen}
+              aria-controls="resume-menu-desktop"
               className={`px-3.5 py-1.5 rounded border transition-colors flex items-center gap-2 text-[0.7rem] font-semibold cursor-pointer ${
                 isLight
                   ? "border-ink text-ink hover:bg-ink hover:text-white"
@@ -157,6 +209,7 @@ export function Navigation({ forcedTheme }: NavigationProps) {
             {/* Dropdown Menu (View & Download) */}
             {resumeMenuOpen && (
               <div
+                id="resume-menu-desktop"
                 className={`absolute right-0 mt-2 w-48 py-2 rounded shadow-2xl border transition-all z-50 ${
                   isLight
                     ? "bg-cream-warm border-ink/20 text-ink shadow-[0_10px_30px_rgba(0,0,0,0.15)]"
@@ -174,8 +227,8 @@ export function Navigation({ forcedTheme }: NavigationProps) {
                       : "hover:bg-white/10 hover:text-accent"
                   }`}
                 >
-                  <span>1. View Resume</span>
-                  <span>↗</span>
+                  <span>View resume</span>
+                  <span aria-hidden="true">↗</span>
                 </a>
                 <a
                   href="/resume.pdf"
@@ -187,8 +240,8 @@ export function Navigation({ forcedTheme }: NavigationProps) {
                       : "hover:bg-white/10 hover:text-accent"
                   }`}
                 >
-                  <span>2. Download Resume</span>
-                  <span>↓</span>
+                  <span>Download resume</span>
+                  <span aria-hidden="true">↓</span>
                 </a>
               </div>
             )}
@@ -200,7 +253,10 @@ export function Navigation({ forcedTheme }: NavigationProps) {
           {/* Mobile Resume Dropdown */}
           <div className="relative" ref={mobileResumeMenuRef}>
             <button
+              ref={mobileResumeTriggerRef}
               onClick={() => setResumeMenuOpen((prev) => !prev)}
+              aria-expanded={resumeMenuOpen}
+              aria-controls="resume-menu-mobile"
               className={`px-2.5 py-1 text-[0.68rem] border rounded flex items-center gap-1.5 cursor-pointer ${
                 isLight ? "border-ink text-ink" : "border-accent text-accent"
               }`}
@@ -211,6 +267,7 @@ export function Navigation({ forcedTheme }: NavigationProps) {
 
             {resumeMenuOpen && (
               <div
+                id="resume-menu-mobile"
                 className={`absolute right-0 top-10 w-44 py-1.5 rounded shadow-2xl border z-50 ${
                   isLight
                     ? "bg-cream-warm border-ink/20 text-ink"
@@ -226,7 +283,7 @@ export function Navigation({ forcedTheme }: NavigationProps) {
                     isLight ? "hover:bg-ink hover:text-white" : "hover:bg-white/10 hover:text-accent"
                   }`}
                 >
-                  1. View Resume ↗
+                  View resume <span aria-hidden="true">↗</span>
                 </a>
                 <a
                   href="/resume.pdf"
@@ -236,7 +293,7 @@ export function Navigation({ forcedTheme }: NavigationProps) {
                     isLight ? "hover:bg-ink hover:text-white" : "hover:bg-white/10 hover:text-accent"
                   }`}
                 >
-                  2. Download Resume ↓
+                  Download resume <span aria-hidden="true">↓</span>
                 </a>
               </div>
             )}
@@ -244,8 +301,11 @@ export function Navigation({ forcedTheme }: NavigationProps) {
 
           {/* Mobile Menu Toggle */}
           <button
+            ref={menuToggleRef}
             onClick={() => setMobileMenuOpen((prev) => !prev)}
             aria-label="Toggle Menu"
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-drawer"
             className={`p-1.5 rounded transition-colors cursor-pointer ${
               isLight ? "hover:text-blue" : "hover:text-accent"
             }`}
@@ -258,6 +318,8 @@ export function Navigation({ forcedTheme }: NavigationProps) {
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
         <div
+          id="mobile-drawer"
+          ref={drawerRef}
           className={`md:hidden mt-4 pt-4 border-t flex flex-col gap-4 font-mono text-[0.8rem] tracking-widest uppercase transition-all ${
             isLight
               ? "border-ink/10 text-ink"
