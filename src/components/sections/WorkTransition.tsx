@@ -10,8 +10,7 @@ export function WorkTransition() {
     offset: ["start end", "end start"],
   });
 
-  // Kinetic movement: subtle letter separation and horizontal translation
-  const letterSpacing = useTransform(scrollYProgress, [0, 0.5, 1], ["0.05em", "0.25em", "0.05em"]);
+  // Kinetic movement: transform-only (scale, x, opacity)
   const xOffset = useTransform(scrollYProgress, [0, 1], [-60, 60]);
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.88, 1.04, 0.92]);
   const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.3, 1, 1, 0.4]);
@@ -21,7 +20,7 @@ export function WorkTransition() {
       id="work"
       data-nav-theme="dark"
       ref={container}
-      className="bg-black text-accent h-[110vh] md:h-[130vh] flex flex-col items-center justify-center overflow-hidden z-20 relative border-t border-b border-white/10"
+      className="bg-black text-accent h-[80vh] md:h-[100vh] flex flex-col items-center justify-center overflow-hidden z-20 relative border-t border-b border-white/10"
     >
       {/* Background subtle grid lines */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
@@ -35,8 +34,8 @@ export function WorkTransition() {
         </div>
 
         <motion.h2
-          style={{ letterSpacing, x: xOffset }}
-          className="text-[clamp(5rem,18vw,17rem)] uppercase leading-[0.8] font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-cream via-accent to-accent/60"
+          style={{ x: xOffset }}
+          className="text-[clamp(5rem,18vw,17rem)] uppercase leading-[0.8] font-bold tracking-tighter text-accent"
         >
           WORK
         </motion.h2>
