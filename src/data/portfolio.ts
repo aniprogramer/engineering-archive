@@ -80,6 +80,8 @@ export const portfolioData = {
   location: "Mangalore, India",
   status: "Available for new opportunities",
   headline: "SOFTWARE ENGINEER / AI",
+  seoDescription:
+    "Aniket De is a software engineer in Mangalore, India, building full-stack, AI and real-time systems.",
   about:
     "I build software where product interfaces, backend systems and AI capabilities have to work as one system.",
   email: "aniketde66@gmail.com",
@@ -413,7 +415,7 @@ export const portfolioData = {
         { label: "Frontend", items: ["React 19", "TypeScript", "Vite"] },
         { label: "Delivery and testing", items: ["Docker Compose", "pytest", "Vitest", "GitHub Actions"] },
       ],
-      featured: false,
+      featured: true,
       priority: 2,
       specs: ["XGBOOST + RF", "TREESHAP", "DRIFT MONITOR"],
       problem:

@@ -44,7 +44,7 @@ export function About() {
               <div className="pt-4 border-t border-white/10 font-mono text-[0.7rem] text-white/50 space-y-2 uppercase">
                 <p>Location: {portfolioData.location}</p>
                 <p>Status: {portfolioData.status}</p>
-                <p>Primary Stack: TypeScript · Python · Go · Next.js</p>
+                <p>Primary Stack: TypeScript · Python · Next.js</p>
               </div>
             </motion.div>
           </div>
