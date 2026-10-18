@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { Logo } from "@/components/ui/Logo";
 import { usePathname } from "next/navigation";
 
 interface NavigationProps {
@@ -10,7 +11,7 @@ interface NavigationProps {
 
 export function Navigation({ forcedTheme }: NavigationProps) {
   const pathname = usePathname();
-  const isProjectPage = pathname?.startsWith("/projects/") || false;
+  const isProjectPage = pathname?.startsWith("/projects") || false;
 
   const [scrollTheme, setScrollTheme] = useState<"light" | "dark">("light");
   const [resumeMenuOpen, setResumeMenuOpen] = useState(false);
@@ -84,11 +85,13 @@ export function Navigation({ forcedTheme }: NavigationProps) {
       <nav className="max-w-[1440px] mx-auto flex items-center justify-between text-[0.75rem] font-mono tracking-widest uppercase">
         <Link
           href="/"
-          className={`font-bold transition-colors ${
+          aria-label="Aniket De - Home"
+          className={`flex items-center gap-3 transition-colors focus-visible:outline-2 focus-visible:outline-accent rounded ${
             isLight ? "hover:text-blue" : "hover:text-accent"
           }`}
         >
-          ANIKET.DE
+          <Logo className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300 hover:scale-105" />
+          <span className="font-bold tracking-widest mt-0.5">ANIKET.DE</span>
         </Link>
 
         {/* Desktop Navigation Links */}

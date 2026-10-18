@@ -1,133 +1,162 @@
-# Engineering Archive
+<div align="center">
 
-A handcrafted personal portfolio and technical documentation archive built with Next.js, TypeScript, and Tailwind CSS.
+# ENGINEERING ARCHIVE
+
+**The personal portfolio of Aniket De, built as a living archive of engineering work.**
+
+<br />
+
+![Next.js](https://img.shields.io/badge/Next.js_16-0F0F0F?style=for-the-badge&logo=nextdotjs&logoColor=F2EBDD)
+![React](https://img.shields.io/badge/React_19-0F0F0F?style=for-the-badge&logo=react&logoColor=C87F4F)
+![TypeScript](https://img.shields.io/badge/TypeScript-0F0F0F?style=for-the-badge&logo=typescript&logoColor=F2EBDD)
+![Tailwind](https://img.shields.io/badge/Tailwind_4-0F0F0F?style=for-the-badge&logo=tailwindcss&logoColor=C87F4F)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-0F0F0F?style=for-the-badge&logo=framer&logoColor=F2EBDD)
+![Vercel](https://img.shields.io/badge/Vercel-0F0F0F?style=for-the-badge&logo=vercel&logoColor=C87F4F)
+
+<br />
+
+[Resume](./public/resume.pdf) · [LinkedIn](https://www.linkedin.com/in/aniket-de-2a6166293/) · [GitHub](https://github.com/aniprogramer) · [Email](mailto:aniketde66@gmail.com)
+
+</div>
 
 ---
 
 ## Overview
 
-Engineering Archive serves as a centralized repository for the professional work, technical research, and systems engineering projects of Aniket De. Unlike conventional portfolio templates that prioritize marketing aesthetics, this project is designed as a functional archive of software craftsmanship. It serves as a living record of backend architectures, data pipelines, and full-stack solutions developed with engineering rigor.
+This site is a record of software built with intent: backend systems, full-stack products and AI tooling that have to work as one system.
+
+It avoids the template look. Sections read like engineering notebooks and system logs. Every project has a thesis, a stack and an outcome.
+
+| | |
+| :--- | :--- |
+| **Role** | Software Engineer, Full-Stack Developer, AI/Product Engineering |
+| **Base** | Mangalore, India |
+| **Focus** | Product interfaces, backend systems and AI capabilities |
 
 ---
 
-## Design Philosophy
+## Design Language: Digital Craftsman
 
-The interface adheres to a **Digital Craftsman** aesthetic, drawing inspiration from engineering notebooks, architectural blueprints, and technical documentation systems. 
-
-*   **Warm Industrial Minimalism:** Utilizes a high-contrast dark theme (#0F0F0F) with warm parchment text and copper accents to evoke the feel of a physical workspace.
-*   **Grid-First Layout:** Employs an asymmetric, engineered layout grounded in a blueprint grid system.
-*   **Authenticity over Trends:** Prioritizes technical clarity and structural depth over trendy glassmorphism or AI-generated visual styles.
-*   **Archive Terminology:** Navigational elements and section headers are framed as "Logs," "Archive," and "Transmissions" to reinforce the system-oriented identity.
+- **Warm industrial minimalism.** Dark `#0F0F0F` canvas, parchment text, copper accents.
+- **Grid first.** Asymmetric layout on a blueprint grid.
+- **Substance over trend.** No glassmorphism filler. Typography and structure carry the design.
+- **Archive vocabulary.** Logs, archive and transmissions frame the navigation and section headers.
 
 ---
 
 ## Features
 
-*   **Engineering Archive UI:** A specialized interface inspired by technical logs and system readouts.
-*   **Precision Cursor System:** A custom-engineered cursor with contextual states (Caret, Crosshair, Pointer) and high-frequency interpolation.
-*   **Archive-Grade Portrait:** Multi-layered hero portrait with subtle parallax and industrial framing.
-*   **Project Documentation:** Case-study focused project cards highlighting Problem, Solution, and Impact.
-*   **Structured Experience Logs:** A sequential timeline inspired by kernel logs and professional milestones.
-*   **Technical Proof Bar:** Real-time data visualization of core engineering metrics.
-*   **Architecture-Optimized:** Built for 60fps performance and sub-second page loads.
-*   **Accessibility Compliant:** Semantic HTML structure ensuring WCAG-level accessibility.
+| | Feature | Detail |
+| :-: | :--- | :--- |
+| ◆ | **Preloader and grain overlay** | Cinematic entry with a film-grain texture over the page |
+| ◆ | **Magnetic interactions** | Custom `useMagnetic` hook for physical hover feel |
+| ◆ | **Layered hero portrait** | Parallax avatar stage with colour on mobile |
+| ◆ | **Project case studies** | Dynamic `/projects/[slug]` pages with problem, solution and impact |
+| ◆ | **Experience log** | Sequential timeline of work and education |
+| ◆ | **Skills matrix** | Six categories from languages to AI systems |
+| ◆ | **Content as data** | All copy lives in one typed file, `src/data/portfolio.ts` |
+| ◆ | **Hardened delivery** | CSP, HSTS, `X-Frame-Options`, `nosniff`, strict referrer and permissions policies |
+| ◆ | **Image protection** | Discourages casual copying of portrait assets |
+
+---
+
+## Featured Work
+
+**Featured**
+
+| # | Project | Domain |
+| :-: | :--- | :--- |
+| 01 | **Wanderlust** | Travel platform |
+| 02 | **Sentinel Agents** | AI security tooling |
+| 03 | **Zerodha Clone** | Fintech UI / educational |
+
+**More work**
+
+| # | Project | Domain |
+| :-: | :--- | :--- |
+| 04 | **Sangam Connect** | Real-time systems / WebRTC |
+| 05 | **ScriptBridge** | NLP / language preservation |
+| 06 | **DGA Sentry** | AI/ML / cybersecurity |
+| 07 | **Saturn Escape: Warp Run** | Computer graphics / C++ |
 
 ---
 
 ## Tech Stack
 
-| Category | Technologies |
+| Layer | Tools |
 | :--- | :--- |
-| **Frontend** | Next.js 15 (App Router), React 19, Tailwind CSS 4, Framer Motion, Three.js |
-| **Backend** | Node.js, Express.js, RESTful API Design |
-| **Databases** | MySQL (Advanced), PostgreSQL, MongoDB |
-| **Languages** | JavaScript (ES6+), TypeScript, Java, Python |
-| **Tools** | Git, Vercel, Lucide Icons, Geist Font System |
+| **Framework** | Next.js 16 (App Router), React 19 |
+| **Language** | TypeScript 5 |
+| **Styling** | Tailwind CSS 4, `clsx`, `tailwind-merge` |
+| **Motion** | Framer Motion |
+| **Icons** | lucide-react |
+| **Quality** | ESLint 9 with `eslint-config-next` |
+| **Hosting** | Vercel |
 
 ---
 
-## Architecture
+## Project Structure
 
-The project follows a modular component-based architecture for scalability and maintainability:
-
-*   `src/app/`: Core routing and global configuration (Layouts, Global Styles, SEO Metadata).
-*   `src/components/`: Atomic UI elements and specialized archive sections (Hero, Projects, Logs).
-*   `src/data/`: Centralized TypeScript data structures. Content is decoupled from the UI layer.
-*   `src/hooks/`: Custom React hooks for specialized interactions (Magnetic physics, Scroll tracking).
-*   `src/lib/`: Utility functions and helper classes.
-*   `public/`: Static assets, including the engineering archive screenshots and PDF logs.
+```text
+src/
+├── app/
+│   ├── layout.tsx            # Root layout and metadata
+│   ├── page.tsx              # Home page
+│   ├── globals.css           # Theme tokens and global styles
+│   └── projects/             # /projects directory + [slug]/ case-study route
+├── components/
+│   ├── sections/             # Hero, About, Experience, Expertise,
+│   │                         # ProjectShowcase, ProjectsList, WorkTransition, Contact
+│   └── ui/                   # AvatarStage, CircularBadge, GrainOverlay,
+│                             # Navigation, Preloader, ProjectNavigation,
+│                             # ProjectVisual
+├── data/portfolio.ts         # Typed content: projects, skills, experience
+├── hooks/useMagnetic.ts      # Magnetic hover physics
+└── lib/utils.ts              # Shared helpers
+public/                       # Portrait, resume, images/projects/dga-sentry/
+```
 
 ---
 
 ## Getting Started
 
-### Prerequisites
+**Requirements:** Node.js 20.9 or later, npm.
 
-- Node.js 18.x or later
-- npm 9.x or later
+```bash
+git clone https://github.com/aniprogramer/engineering-archive.git
+cd engineering-archive
+npm install
+npm run dev
+```
 
-### Installation
+Open [http://localhost:3000](http://localhost:3000).
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/aniketde/engineering-archive.git
-   ```
-
-2. Navigate to the project directory:
-   ```bash
-   cd engineering-archive
-   ```
-
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-4. Initialize the development environment:
-   ```bash
-   npm run dev
-   ```
+| Command | Action |
+| :--- | :--- |
+| `npm run dev` | Start the dev server |
+| `npm run build` | Create a production build |
+| `npm run start` | Serve the production build |
+| `npm run lint` | Run ESLint |
 
 ---
 
-## Performance Goals
+## Customising
 
-- **Lighthouse Score:** Target 95+ across Performance, Accessibility, Best Practices, and SEO.
-- **Responsiveness:** Fluid grid system supporting Mobile, Desktop, and 4K displays.
-- **Motion:** Intentional, low-latency animations that respect `prefers-reduced-motion` system settings.
+Edit `src/data/portfolio.ts`. Name, roles, socials, skills, projects and experience all load from this file. No component changes are needed for content updates.
 
 ---
 
-## Screenshots
+## Deployment
 
-![Hero Section](./public/screenshots/hero.png)
-*Hero Interface: Systems Architect archive initialization.*
-
-![Projects](./public/screenshots/projects.png)
-*Project Archive: Documentation of full-stack and data engineering builds.*
+Push to GitHub and import the repository in [Vercel](https://vercel.com/new). Security headers ship from `next.config.ts`.
 
 ---
 
-## Future Improvements
+<div align="center">
 
-*   **Integrated Engineering Blog:** Markdown-based technical writing system.
-*   **Project Deep-Dives:** Detailed case study pages with relationship diagrams.
-*   **Interactive System Diagrams:** Live Three.js representations of database schemas.
-*   **Command Line Interface:** A terminal-based navigation alternative for advanced users.
+**Aniket De**
+Software Engineer · Full-Stack Developer · AI/Product Engineering
 
----
+[aniketde66@gmail.com](mailto:aniketde66@gmail.com)
 
-## Author
-
-**Aniket De**  
-*Software Engineer • Full Stack Developer • Data Engineer*
-
-- **GitHub:** [https://github.com/aniketde](https://github.com/aniketde)
-- **LinkedIn:** [https://linkedin.com/in/aniketde](https://linkedin.com/in/aniketde)
-- **Archive:** [https://aniketde.dev](https://aniketde.dev)
-
----
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+</div>
