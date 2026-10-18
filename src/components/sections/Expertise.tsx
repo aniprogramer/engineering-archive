@@ -30,45 +30,50 @@ export function Expertise() {
             return (
               <div
                 key={category.name}
-                onMouseEnter={() => setActiveCategory(index)}
-                onClick={() => setActiveCategory(isActive ? null : index)}
-                className={`cursor-pointer border-b border-white/15 py-7 transition-all duration-300 ${
+                className={`border-b border-white/15 transition-all duration-300 ${
                   isActive ? "bg-white/[0.02]" : "hover:bg-white/[0.01]"
                 }`}
               >
-                <div className="flex items-center justify-between px-2 sm:px-4">
-                  {/* Category Title & Index */}
-                  <div className="flex items-center gap-6 sm:gap-12">
-                    <span
-                      className={`font-mono text-xs sm:text-sm tracking-widest transition-colors duration-300 ${
-                        isActive ? "text-accent font-bold" : "text-white/40"
-                      }`}
-                    >
-                      {indexStr}
+                <h3>
+                  <button
+                    type="button"
+                    id={`skill-btn-${index}`}
+                    aria-expanded={isActive}
+                    aria-controls={`skill-panel-${index}`}
+                    onClick={() => setActiveCategory(isActive ? null : index)}
+                    className="w-full text-left cursor-pointer py-7 px-2 sm:px-4 flex items-center justify-between focus-visible:outline-2 focus-visible:outline-accent"
+                  >
+                    <span className="flex items-center gap-6 sm:gap-12">
+                      <span
+                        aria-hidden="true"
+                        className={`font-mono text-xs sm:text-sm tracking-widest transition-colors duration-300 ${
+                          isActive ? "text-accent font-bold" : "text-white/40"
+                        }`}
+                      >
+                        {indexStr}
+                      </span>
+                      <span
+                        className={`text-xl sm:text-3xl font-bold uppercase tracking-tight transition-all duration-300 ${
+                          isActive ? "text-cream translate-x-2" : "text-white/80"
+                        }`}
+                      >
+                        {category.name}
+                      </span>
                     </span>
-                    <h3
-                      className={`text-xl sm:text-3xl font-bold uppercase tracking-tight transition-all duration-300 ${
-                        isActive ? "text-cream translate-x-2" : "text-white/80"
-                      }`}
-                    >
-                      {category.name}
-                    </h3>
-                  </div>
-
-                  {/* Right Status / Indicator */}
-                  <div className="flex items-center gap-4">
-                    <span className="font-mono text-[0.65rem] tracking-widest uppercase text-white/40 hidden md:inline">
-                      {category.skills.length} TECHNOLOGIES
+                    <span aria-hidden="true" className="flex items-center gap-4">
+                      <span className="font-mono text-[0.65rem] tracking-widest uppercase text-white/40 hidden md:inline">
+                        {category.skills.length} TECHNOLOGIES
+                      </span>
+                      <span
+                        className={`font-mono text-sm transition-transform duration-300 ${
+                          isActive ? "text-accent rotate-90" : "text-white/40"
+                        }`}
+                      >
+                        →
+                      </span>
                     </span>
-                    <span
-                      className={`font-mono text-sm transition-transform duration-300 ${
-                        isActive ? "text-accent rotate-90" : "text-white/40"
-                      }`}
-                    >
-                      →
-                    </span>
-                  </div>
-                </div>
+                  </button>
+                </h3>
 
                 {/* Animated Technology Panel */}
                 <AnimatePresence>
@@ -78,9 +83,12 @@ export function Expertise() {
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.35, ease: "easeInOut" }}
+                      id={`skill-panel-${index}`}
+                      role="region"
+                      aria-labelledby={`skill-btn-${index}`}
                       className="overflow-hidden"
                     >
-                      <div className="px-2 sm:px-4 pt-6 pb-2">
+                      <div className="px-2 sm:px-4 pb-7">
                         <div className="flex flex-wrap gap-2.5 sm:gap-3">
                           {category.skills.map((skill) => (
                             <span
