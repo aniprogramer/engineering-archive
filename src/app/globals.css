@@ -12,9 +12,10 @@
   --color-cream-warm: var(--cream-warm);
   --color-accent: var(--accent);
 
-  --font-display: var(--font-geom), "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  /* Geom is not licensed/loaded; headings use this system stack on purpose. */
+  --font-display: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
   --font-body: var(--font-sora), Inter, system-ui, sans-serif;
-  --font-mono: var(--font-mono), "JetBrains Mono", monospace;
+  --font-mono: var(--font-jetbrains-mono), "JetBrains Mono", monospace;
 }
 
 :root {
@@ -32,7 +33,6 @@
   --text-display: clamp(4.5rem, 14vw, 15rem);
   --text-section: clamp(3rem, 8vw, 9rem);
   --text-title: clamp(2rem, 4vw, 5rem);
-  --text-body: clamp(1rem, 1.15vw, 1.125rem);
   --text-meta: 0.72rem;
 
   /* Custom Editorial Scrollbar Theme Tokens */
