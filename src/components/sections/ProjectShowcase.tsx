@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion, AnimatePresence, MotionConfig } from "framer-motion";
+import { motion } from "framer-motion";
 import { getFeaturedProjects, type Project } from "@/data/portfolio";
 import { ProjectVisual } from "@/components/ui/ProjectVisual";
 
@@ -20,10 +20,8 @@ function TechTags({ items }: { items: string[] }) {
 function FeaturedRow({ project, flip }: { project: Project; flip: boolean }) {
   return (
     <motion.article
-      layout
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
       className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center group"
@@ -61,7 +59,6 @@ export function ProjectShowcase() {
   const featured = getFeaturedProjects();
 
   return (
-    <MotionConfig reducedMotion="user">
       <section
         id="projects"
         data-nav-theme="dark"
@@ -86,11 +83,9 @@ export function ProjectShowcase() {
           </header>
 
           <div className="flex flex-col gap-28 md:gap-40">
-            <AnimatePresence mode="popLayout">
               {featured.map((p, i) => (
                 <FeaturedRow key={p.slug} project={p} flip={i % 2 === 1} />
               ))}
-            </AnimatePresence>
           </div>
 
           <div className="flex justify-center border-t border-white/15 pt-12">
@@ -103,6 +98,5 @@ export function ProjectShowcase() {
           </div>
         </div>
       </section>
-    </MotionConfig>
   );
 }
