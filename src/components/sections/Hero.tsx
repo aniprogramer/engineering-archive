@@ -179,12 +179,12 @@ export function Hero() {
         </motion.div>
 
         {/* Top Reference Metadata Strip */}
+        <motion.div style={{ x: layer3X, y: layer3Y }} className="w-full max-w-[1440px] relative z-10">
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-          style={{ x: layer3X, y: layer3Y }}
-          className="w-full max-w-[1440px] flex justify-between items-center font-mono text-[0.65rem] sm:text-[0.68rem] uppercase tracking-widest text-ink/60 border-b border-ink/10 pb-4 relative z-10"
+          className="w-full flex justify-between items-center font-mono text-[0.65rem] sm:text-[0.68rem] uppercase tracking-widest text-ink/60 border-b border-ink/10 pb-4 relative z-10"
         >
           <div className="flex items-center gap-2.5">
             <span className="inline-block w-2 h-2 rounded-full bg-ink animate-pulse" />
@@ -192,6 +192,7 @@ export function Hero() {
           </div>
           <div className="hidden sm:block text-ink/40">SYSTEM ARCHITECTURE &amp; AI INTERFACES</div>
           <div>MANGALORE [12.87° N, 74.88° E]</div>
+        </motion.div>
         </motion.div>
 
         {/* Centerpiece Typographic Composition */}
@@ -219,35 +220,37 @@ export function Hero() {
             >
               {/* Line 1: SOFTWARE */}
               <div className="w-full overflow-hidden flex justify-center py-1 sm:py-2">
-                <motion.h1
-                  initial={{ y: "115%", opacity: 0 }}
-                  animate={{ y: "0%", opacity: 1 }}
-                  transition={{
-                    duration: 1.0,
-                    ease: [0.22, 1, 0.36, 1],
-                    delay: 0.25,
-                  }}
-                  style={{ y: primaryTitleY }}
-                  className="text-[clamp(3.1rem,11.8vw,12.5rem)] leading-[0.88] tracking-tight uppercase font-bold text-center text-ink whitespace-nowrap"
-                >
-                  SOFTWARE
-                </motion.h1>
+                <motion.div style={{ y: primaryTitleY }}>
+                  <motion.h1
+                    initial={{ y: "115%", opacity: 0 }}
+                    animate={{ y: "0%", opacity: 1 }}
+                    transition={{
+                      duration: 1.0,
+                      ease: [0.22, 1, 0.36, 1],
+                      delay: 0.25,
+                    }}
+                    className="text-[clamp(3.1rem,11.8vw,12.5rem)] leading-[0.88] tracking-tight uppercase font-bold text-center text-ink whitespace-nowrap"
+                  >
+                    SOFTWARE
+                  </motion.h1>
+                </motion.div>
               </div>
 
               {/* Line 2: ENGINEER */}
               <div className="w-full overflow-hidden flex justify-center py-1 sm:py-2">
-                <motion.div
-                  initial={{ y: "115%", opacity: 0 }}
-                  animate={{ y: "0%", opacity: 1 }}
-                  transition={{
-                    duration: 1.0,
-                    ease: [0.22, 1, 0.36, 1],
-                    delay: 0.4,
-                  }}
-                  style={{ y: primaryTitleY }}
-                  className="text-[clamp(3.1rem,11.8vw,12.5rem)] leading-[0.88] tracking-tight uppercase font-bold text-center text-ink whitespace-nowrap"
-                >
-                  ENGINEER
+                <motion.div style={{ y: primaryTitleY }}>
+                  <motion.div
+                    initial={{ y: "115%", opacity: 0 }}
+                    animate={{ y: "0%", opacity: 1 }}
+                    transition={{
+                      duration: 1.0,
+                      ease: [0.22, 1, 0.36, 1],
+                      delay: 0.4,
+                    }}
+                    className="text-[clamp(3.1rem,11.8vw,12.5rem)] leading-[0.88] tracking-tight uppercase font-bold text-center text-ink whitespace-nowrap"
+                  >
+                    ENGINEER
+                  </motion.div>
                 </motion.div>
               </div>
             </motion.div>
@@ -255,20 +258,21 @@ export function Hero() {
 
           {/* Line 3: / AI & PRODUCT ENGINEERING */}
           <div className="w-full overflow-hidden flex justify-center mt-3 sm:mt-6 px-4 py-1">
-            <motion.div
-              initial={{ y: "120%", opacity: 0 }}
-              animate={{ y: "0%", opacity: 1 }}
-              transition={{
-                duration: 0.9,
-                ease: [0.22, 1, 0.36, 1],
-                delay: 0.55,
-              }}
-              style={{ x: layer2X, y: secondaryTitleY }}
-              className="font-mono text-xs sm:text-base md:text-xl lg:text-2xl tracking-[0.25em] sm:tracking-[0.32em] uppercase text-blue font-semibold text-center"
-            >
-              <motion.span style={{ x: secondaryTitleX }} className="inline-block">
-                / AI &amp; PRODUCT ENGINEERING
-              </motion.span>
+            <motion.div style={{ x: layer2X, y: secondaryTitleY }}>
+              <motion.div
+                initial={{ y: "120%", opacity: 0 }}
+                animate={{ y: "0%", opacity: 1 }}
+                transition={{
+                  duration: 0.9,
+                  ease: [0.22, 1, 0.36, 1],
+                  delay: 0.55,
+                }}
+                className="font-mono text-xs sm:text-base md:text-xl lg:text-2xl tracking-[0.25em] sm:tracking-[0.32em] uppercase text-blue font-semibold text-center"
+              >
+                <motion.span style={{ x: secondaryTitleX }} className="inline-block">
+                  / AI &amp; PRODUCT ENGINEERING
+                </motion.span>
+              </motion.div>
             </motion.div>
           </div>
 
