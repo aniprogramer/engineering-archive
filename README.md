@@ -49,7 +49,6 @@ It avoids the template look. Sections read like engineering notebooks and system
 | | Feature | Detail |
 | :-: | :--- | :--- |
 | ◆ | **Preloader and grain overlay** | Cinematic entry with a film-grain texture over the page |
-| ◆ | **Magnetic interactions** | Custom `useMagnetic` hook for physical hover feel |
 | ◆ | **Layered hero portrait** | Parallax avatar stage with colour on mobile |
 | ◆ | **Project case studies** | Dynamic `/projects/[slug]` pages with problem, solution and impact |
 | ◆ | **Experience log** | Sequential timeline of work and education |
@@ -69,6 +68,7 @@ It avoids the template look. Sections read like engineering notebooks and system
 | 01 | **Wanderlust** | Travel platform |
 | 02 | **Sentinel Agents** | AI security tooling |
 | 03 | **Zerodha Clone** | Fintech UI / educational |
+| 06 | **DGA Sentry** | AI/ML / cybersecurity |
 
 **More work**
 
@@ -76,7 +76,6 @@ It avoids the template look. Sections read like engineering notebooks and system
 | :-: | :--- | :--- |
 | 04 | **Sangam Connect** | Real-time systems / WebRTC |
 | 05 | **ScriptBridge** | NLP / language preservation |
-| 06 | **DGA Sentry** | AI/ML / cybersecurity |
 | 07 | **Saturn Escape: Warp Run** | Computer graphics / C++ |
 
 ---
@@ -87,9 +86,8 @@ It avoids the template look. Sections read like engineering notebooks and system
 | :--- | :--- |
 | **Framework** | Next.js 16 (App Router), React 19 |
 | **Language** | TypeScript 5 |
-| **Styling** | Tailwind CSS 4, `clsx`, `tailwind-merge` |
+| **Styling** | Tailwind CSS 4 |
 | **Motion** | Framer Motion |
-| **Icons** | lucide-react |
 | **Quality** | ESLint 9 with `eslint-config-next` |
 | **Hosting** | Vercel |
 
@@ -110,9 +108,7 @@ src/
 │   └── ui/                   # AvatarStage, CircularBadge, GrainOverlay,
 │                             # Navigation, Preloader, ProjectNavigation,
 │                             # ProjectVisual
-├── data/portfolio.ts         # Typed content: projects, skills, experience
-├── hooks/useMagnetic.ts      # Magnetic hover physics
-└── lib/utils.ts              # Shared helpers
+└── data/portfolio.ts         # Typed content: projects, skills, experience
 public/                       # Portrait, resume, images/projects/dga-sentry/
 ```
 
