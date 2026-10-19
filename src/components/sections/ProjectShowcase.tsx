@@ -46,7 +46,7 @@ function FeaturedRow({ project, flip }: { project: Project; flip: boolean }) {
         </div>
         <Link
           href={`/projects/${project.slug}`}
-          className="inline-flex items-center gap-2 border-b border-accent pb-1 text-accent font-mono text-xs tracking-widest uppercase hover:text-white hover:border-white focus-visible:outline-2 focus-visible:outline-accent transition-colors"
+          className="inline-flex items-center gap-2 py-3 border-b border-accent pb-1 text-accent font-mono text-xs tracking-widest uppercase hover:text-white hover:border-white focus-visible:outline-2 focus-visible:outline-accent transition-colors"
         >
           View Project Details <span aria-hidden>→</span>
         </Link>

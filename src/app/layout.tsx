@@ -40,7 +40,7 @@ export default function RootLayout({
   // Font variables live on <html> so the :root theme tokens in globals.css can resolve them.
   return (
     <html lang="en" className={`scroll-smooth ${sora.variable} ${jetbrainsMono.variable}`}>
-      <body className="antialiased">
+      <body className="antialiased" suppressHydrationWarning>
         <MotionProvider>{children}</MotionProvider>
       </body>
     </html>

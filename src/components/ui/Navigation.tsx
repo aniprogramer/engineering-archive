@@ -122,7 +122,7 @@ export function Navigation({ forcedTheme }: NavigationProps) {
   }, [forcedTheme, isProjectPage]);
 
   // Navigation target prefix: return to homepage anchors if on a project page
-  const anchorPrefix = isProjectPage ? "/" : "";
+  const anchorPrefix = "/"; // absolute, so links work from project and 404 routes
 
   return (
     <header
@@ -136,7 +136,7 @@ export function Navigation({ forcedTheme }: NavigationProps) {
         <Link
           href="/"
           aria-label="Aniket De - Home"
-          className={`flex items-center gap-3 transition-colors focus-visible:outline-2 focus-visible:outline-accent rounded ${
+          className={`flex items-center gap-3 min-h-11 transition-colors focus-visible:outline-2 focus-visible:outline-accent rounded ${
             isLight ? "hover:text-blue" : "hover:text-accent"
           }`}
         >
@@ -148,7 +148,7 @@ export function Navigation({ forcedTheme }: NavigationProps) {
         <div className="hidden md:flex items-center gap-8">
           <Link
             href={`${anchorPrefix}#about`}
-            className={`transition-colors ${
+            className={`py-3 transition-colors ${
               isLight ? "hover:text-blue" : "hover:text-accent"
             }`}
           >
@@ -156,7 +156,7 @@ export function Navigation({ forcedTheme }: NavigationProps) {
           </Link>
           <Link
             href={`${anchorPrefix}#experience`}
-            className={`transition-colors ${
+            className={`py-3 transition-colors ${
               isLight ? "hover:text-blue" : "hover:text-accent"
             }`}
           >
@@ -164,7 +164,7 @@ export function Navigation({ forcedTheme }: NavigationProps) {
           </Link>
           <Link
             href={`${anchorPrefix}#expertise`}
-            className={`transition-colors ${
+            className={`py-3 transition-colors ${
               isLight ? "hover:text-blue" : "hover:text-accent"
             }`}
           >
@@ -172,7 +172,7 @@ export function Navigation({ forcedTheme }: NavigationProps) {
           </Link>
           <Link
             href={`${anchorPrefix}#projects`}
-            className={`transition-colors ${
+            className={`py-3 transition-colors ${
               isLight ? "hover:text-blue" : "hover:text-accent"
             }`}
           >
@@ -180,7 +180,7 @@ export function Navigation({ forcedTheme }: NavigationProps) {
           </Link>
           <Link
             href={`${anchorPrefix}#contact`}
-            className={`transition-colors ${
+            className={`py-3 transition-colors ${
               isLight ? "hover:text-blue" : "hover:text-accent"
             }`}
           >
@@ -306,7 +306,7 @@ export function Navigation({ forcedTheme }: NavigationProps) {
             aria-label="Toggle Menu"
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-drawer"
-            className={`p-1.5 rounded transition-colors cursor-pointer ${
+            className={`min-h-11 min-w-11 -mr-2 flex items-center justify-center rounded transition-colors cursor-pointer ${
               isLight ? "hover:text-blue" : "hover:text-accent"
             }`}
           >

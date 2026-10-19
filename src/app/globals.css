@@ -31,7 +31,7 @@
   --black: #0B0D0F;
 
   --text-display: clamp(4.5rem, 14vw, 15rem);
-  --text-section: clamp(3rem, 8vw, 9rem);
+  --text-section: clamp(2.5rem, 8vw, 9rem);
   --text-title: clamp(2rem, 4vw, 5rem);
   --text-meta: 0.72rem;
 

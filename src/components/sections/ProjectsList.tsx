@@ -84,7 +84,7 @@ export function ProjectsList() {
               <Link
                 href={`/projects/${p.slug}`}
                 aria-label={`View project: ${p.title}`}
-                className="font-mono text-xs tracking-widest uppercase text-white/60 border-b border-white/20 pb-0.5 hover:text-accent hover:border-accent focus-visible:outline-2 focus-visible:outline-accent transition-colors"
+                className="py-3 font-mono text-xs tracking-widest uppercase text-white/60 border-b border-white/20 pb-0.5 hover:text-accent hover:border-accent focus-visible:outline-2 focus-visible:outline-accent transition-colors"
               >
                 View Project <span aria-hidden>→</span>
               </Link>
